@@ -14,4 +14,6 @@ class RecipeModel extends RecipeEntity {
   });
 
   factory RecipeModel.fromJson(Map<String, dynamic> json) => _$RecipeModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$RecipeModelToJson(this);
 }
