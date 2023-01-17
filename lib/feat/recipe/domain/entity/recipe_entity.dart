@@ -1,30 +1,23 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
 
 class RecipeEntity extends Equatable {
-  final DateTime id;
-  final String title;
-  final String description;
-  final List<String> ingredients;
-  final int minutes;
-  final Icon icon;
+  final String label;
+  final int calories;
+  final String image;
+  final List<String> ingredientLines;
 
   const RecipeEntity({
-    required this.id,
-    required this.title,
-    required this.description,
-    required this.ingredients,
-    required this.minutes,
-    required this.icon,
+    required this.label,
+    required this.calories,
+    required this.image,
+    required this.ingredientLines,
   });
 
   @override
   List<Object> get props => [
-        id,
-        title,
-        description,
-        ingredients,
-        minutes,
-        icon,
-      ];
+    label,
+    calories,
+    image,
+    ingredientLines,
+  ];
 }
