@@ -2,11 +2,11 @@ import 'package:recipe_db/feat/recipe/domain/entity/recipe_entity.dart';
 import 'package:recipe_db/feat/recipe/domain/repository/recipe_repository.dart';
 
 class AddRecipeUseCase {
-  final RecipeRepository recipeRepository;
+  final RecipeRepository _recipeRepository;
 
-  AddRecipeUseCase(this.recipeRepository);
+  AddRecipeUseCase(this._recipeRepository);
 
   Future<void> call(RecipeEntity recipe) async {
-    return await recipeRepository.addRecipe(recipe);
+    return await _recipeRepository.addRecipe(recipe);
   }
 }
