@@ -6,7 +6,7 @@ class SaveRecipeUseCase {
 
   SaveRecipeUseCase(this._recipeRepository);
 
-  Future<void> call(String label) async {
-    return await _recipeRepository.saveRecipe(label);
+  Future<void> call(RecipeEntity recipe) async {
+    return await _recipeRepository.saveRecipe(recipe);
   }
 }

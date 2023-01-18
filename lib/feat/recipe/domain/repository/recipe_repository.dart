@@ -7,5 +7,5 @@ abstract class RecipeRepository {
 
   Future<void> removeRecipe(String label);
 
-  Future<void> saveRecipe(String label);
+  Future<void> saveRecipe(RecipeEntity recipe);
 }
