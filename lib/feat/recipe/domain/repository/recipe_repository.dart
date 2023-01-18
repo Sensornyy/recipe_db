@@ -5,9 +5,7 @@ abstract class RecipeRepository {
 
   Future<List<RecipeEntity>> getRecipes();
 
-  Future<void> addRecipe(RecipeEntity recipe);
+  Future<void> removeRecipe(String label);
 
-  Future<void> removeRecipe(RecipeEntity recipe);
-
-  Future<void> saveRecipe(RecipeEntity recipe);
+  Future<void> saveRecipe(String label);
 }

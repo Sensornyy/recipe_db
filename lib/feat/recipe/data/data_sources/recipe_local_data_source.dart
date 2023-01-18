@@ -4,9 +4,7 @@ import 'package:sqflite/sqflite.dart';
 abstract class RecipeLocalDataSource {
   Future<List<RecipeModel>> getRecipes();
 
-  Future<void> addRecipe(RecipeModel recipe);
-
-  Future<void> removeRecipe(RecipeModel recipe);
+  Future<void> removeRecipe(String label);
 
   Future<void> saveRecipe(RecipeModel recipe);
 }
@@ -17,26 +15,19 @@ class RecipeLocalDataSourceImpl implements RecipeLocalDataSource {
   RecipeLocalDataSourceImpl(this.db);
 
   @override
-  Future<void> addRecipe(RecipeModel recipe) async {
-    await db.insert('recipes', recipe.toJson());
+  Future<void> saveRecipe(RecipeModel recipe) async {
+    await db.insert('RECIPES', recipe.toJson());
   }
 
   @override
-  Future<List<RecipeModel>> getRecipes() {
-    // TODO: implement getRecipes
-    throw UnimplementedError();
+  Future<List<RecipeModel>> getRecipes() async {
+    var recipes = await db.query('RECIPES');
+
+    return recipes.map((r) => RecipeModel.fromJson(r)).toList();
   }
 
   @override
-  Future<void> removeRecipe(RecipeModel recipe) {
-    // TODO: implement removeRecipe
-    throw UnimplementedError();
+  Future<void> removeRecipe(String label) async {
+    await db.delete('RECIPES', where: 'label = ?', whereArgs: [label]);
   }
-
-  @override
-  Future<void> saveRecipe(RecipeModel recipe) {
-    // TODO: implement saveRecipe
-    throw UnimplementedError();
-  }
-  
 }
