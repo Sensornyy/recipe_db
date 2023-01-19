@@ -28,8 +28,8 @@ class RecipeRepositoryImpl extends RecipeRepository {
   }
 
   @override
-  Future<void> saveRecipe(RecipeModel recipe) async {
-    await localDataSource.saveRecipe(recipe);
+  Future<void> saveRecipe(RecipeEntity recipe) async {
+    await localDataSource.saveRecipe(recipe as RecipeModel);
   }
 
   @override
