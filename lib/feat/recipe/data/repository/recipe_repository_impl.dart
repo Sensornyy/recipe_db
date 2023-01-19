@@ -22,9 +22,8 @@ class RecipeRepositoryImpl extends RecipeRepository {
   }
 
   @override
-  Future<void> removeRecipe(String label) {
-    // TODO: implement removeRecipe
-    throw UnimplementedError();
+  Future<void> removeRecipe(String label) async {
+    await localDataSource.removeRecipe(label);
   }
 
   @override
